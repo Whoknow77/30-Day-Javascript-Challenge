@@ -36,7 +36,7 @@
 - 특정한 태그의 dataset안의 data를 비교하여 태그에 접근이 가능하다.
 
     ```js
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);`
     ```
 
 - `querySelectorAll`로 모든 태그를 배열에 담아 `forEach`문으로 배열 전체를 순회해 핸들러를 등록할 수 있다.
