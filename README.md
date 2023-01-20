@@ -4,3 +4,5 @@
 
 - ### 1) [Make a Javascript Drum kit](./1day/README.md)
 - ### 2) [CSS + JS Clock](./2day/README.md)
+- ### 3) [Update CSS Variables](./3day/README.md)
+- ### 4) [Array Cardio Practice - Day 1 ](./4day/README.md)
