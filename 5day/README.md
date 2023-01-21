@@ -3,7 +3,7 @@
 
 <br>
 
-<img src="https://i.postimg.cc/y88VWDf6/image.png">
+<img src="https://i.postimg.cc/8Cvkc61r/image.png">
 
 ## 소개 
 
