@@ -3,7 +3,7 @@
 
 <br>
 
-`
+
 ## 소개 
 
 - Array의 다양한 Function 학습(2) : `some, every, [...spreads]`
