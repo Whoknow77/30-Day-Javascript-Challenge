@@ -1,4 +1,4 @@
-# Javascript Array Cardio Practce Day 2
+# Array Cardio Practce - Day 2
 
 
 <br>

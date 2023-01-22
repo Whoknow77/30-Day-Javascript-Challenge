@@ -22,4 +22,5 @@
 |[Array Cardio Practice - Day 1 ](./4day/README.md) | 23/01/20 |
 |[Flexbox + JavaScript Image Gallery ](./5day/README.md) | 23/01/21 |
 |[Ajax Type Ahead with fetch() ](./6day/README.md) | 23/01/21 |
+|[Array Cardio Practce Day 2 ](./7day/README.md) | 23/01/22 |
 
