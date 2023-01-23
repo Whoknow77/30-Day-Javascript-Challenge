@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+  const canvas = document.querySelector('#draw');
+  const ctx = canvas.getContext('2d');
+  canvas.width= window.innerWidth;
+  canvas.height= window.innerHeight;
+  ctx.strokeStyle = "#BADA55"; // 선의 색
+  ctx.lineJoin='round'; // 선의 꺾이는 부분
+  ctx.lineCap='round'; //  선의 끝 부분
+  ctx.lineWidth=100;
+  
+  // flag
+  let isDrawing = false;
+
+  // 마우스를 뗐을 때의 좌표
+  let lastX=0;
+  let lastY=0;
+  let hue =0;
+  let direction = true;
+  function draw(e){
+    if(!isDrawing){
+      return;
+    }
+
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+
+    // 그리기 시작
+    ctx.beginPath();
+
+    // 시작점
+    ctx.moveTo(lastX, lastY);
+
+    // 끝점
+    ctx.lineTo(e.offsetX, e.offsetY);
+
+    //화면에 보이게 함
+    ctx.stroke();
+
+    // 끝점 업데이트
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+    hue++;
+    if(hue>=360){
+      hue=0;
+    }
+    if(ctx.lineWidth>=100 || ctx.lineWidth <=1){
+      direction=!direction;
+    }
+
+    if(direction){
+      ctx.lineWidth++;
+    }
+    else{
+      ctx.lineWidth--;
+    }
+
+  }
+
+  canvas.addEventListener('mousemove', draw);
+
+  // 마우스 클릭시에만 그림 그리도록 함
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+
+    // 시작점 업데이트
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+  });
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  
+  // 마우스가 창을 벗어났을 때 그리기 X
+  canvas.addEventListener('mouseout', () => isDrawing = false);
+
+</script>
+
+
+<style>
+  html, body {
+    margin: 0;
+  }
+</style>
+
+</body>
+</html>

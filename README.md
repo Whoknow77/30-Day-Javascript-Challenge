@@ -9,7 +9,7 @@
 
 <br/>
 
-## 23/01/18 ~ 23/02/15 동안 최소 하루에 하나씩 만드는 것을 목표로 합니다.
+## 23/01/18 ~ 23/02/15 동안 하루에 최소 하나씩 만드는 것을 목표로 합니다.
 
 <br/>
 
@@ -22,5 +22,6 @@
 |[Array Cardio Practice - Day 1 ](./4day/README.md) | 23/01/20 |
 |[Flexbox + JavaScript Image Gallery ](./5day/README.md) | 23/01/21 |
 |[Ajax Type Ahead with fetch() ](./6day/README.md) | 23/01/21 |
-|[Array Cardio Practce Day 2 ](./7day/README.md) | 23/01/22 |
+|[Array Cardio Practce - Day 2 ](./7day/README.md) | 23/01/22 |
+|[Let's build something fun with HTML5 Canvas](./8day/README.md) | 23/01/23 |
 
