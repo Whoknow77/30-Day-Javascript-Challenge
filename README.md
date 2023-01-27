@@ -26,4 +26,5 @@
 |[Let's build something fun with HTML5 Canvas](./8day/README.md) | 23/01/23 |
 |[14 Must Know Chrome Dev Tools Tricks](./9day/README.md) | 23/01/24 |
 |[JS Checkbox Challenge!](./10day/README.md) | 23/01/25 |
+|[Custom HTML5 Video Player](./11day/README.md) | 23/01/27 |
 
