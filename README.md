@@ -28,4 +28,5 @@
 |[JS Checkbox Challenge!](./10day/README.md) | 23/01/25 |
 |[Custom HTML5 Video Player](./11day/README.md) | 23/01/27 |
 |[JavaScript KONAMI CODE!](./12day/README.md) | 23/01/27 |
+|[Vanilla JavaScript Slide In on Scroll](./13day/README.md) | 23/01/28|
 

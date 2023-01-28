@@ -1,4 +1,4 @@
-# Custom HTML5 Video Player
+# Vanilla JavaScript Slide In on Scroll
 
 <br>
 
