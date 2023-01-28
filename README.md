@@ -29,4 +29,5 @@
 |[Custom HTML5 Video Player](./11day/README.md) | 23/01/27 |
 |[JavaScript KONAMI CODE!](./12day/README.md) | 23/01/27 |
 |[Vanilla JavaScript Slide In on Scroll](./13day/README.md) | 23/01/28|
+|[JavaScript Fundamentals: Reference VS Copy](./14day/README.md) | 23/01/28|
 
