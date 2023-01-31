@@ -31,4 +31,5 @@
 |[Vanilla JavaScript Slide In on Scroll](./13day/README.md) | 23/01/28|
 |[JavaScript Fundamentals: Reference VS Copy](./14day/README.md) | 23/01/28|
 |[How LocalStorage and Event Delegation work](./15day/README.md) | 23/01/30|
+|[CSS Text Shadow on Mouse Move Effect](./16day/README.md) | 23/01/31|
 
