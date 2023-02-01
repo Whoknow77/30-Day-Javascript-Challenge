@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS Reference VS Copy</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Reference VS Copy</title>
+  </head>
+  <body>
+    <script>
+      const players = ["Wes", "Sarah", "Ryan", "Poppy"];
 
-  <script>
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+      const team2 = players.slice();
 
-    const team2 = players.slice();
+      const team3 = [].concat(players);
 
-    const team3 = [].concat(players);
+      const team4 = [...players];
 
-    const team4 = [...players];
+      const team5 = Array.from(players);
 
-    const team5 = Array.from(players);
+      const person = {
+        name: "Wes Bos",
+        age: 80,
+      };
 
+      const dev = Object.assing({}, wes);
 
-    const person = {
-      name: 'Wes Bos',
-      age: 80
-    };
-    
-    const dev = Object.assing({}, wes);
+      const person2 = {
+        name: "Wes Bos",
+        age: 80,
+        email: {
+          name: "whoknow",
+        },
+      };
 
-
-    const person2 = {
-      name: 'Wes Bos',
-      age: 80,
-      email:{
-        name : 'whoknow'
-      }
-    };
-
-    const dev2 = JSON.parse(JSON.stringify(wes));
-
-    
-
-  </script>
-
-</body>
+      const dev2 = JSON.parse(JSON.stringify(wes));
+    </script>
+  </body>
 </html>

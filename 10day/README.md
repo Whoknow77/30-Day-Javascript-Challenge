@@ -4,7 +4,7 @@
 
 <img src="https://i.postimg.cc/5N3qHRSS/image.png">
 
-## 소개 
+## 소개
 
 ### Gmail이나 네이버 메일 등에서 메일을 선택할 때와 같이 shift로 메일과 메일을 누르면 사이의 메일이 모두 선택되는 기능을 가진 웹페이지
 
@@ -19,8 +19,6 @@
 생각했던 것 보다 더 어려웠고 코드가 처음에 아예 이해가 가지않아서 당황했다.
 
 천천히 다시보니 이해가 되었지만 배열을 순회하면서 flag를 이용하는 방식이 익숙해졌나 싶었는데 그동안 했던 예제들보다 체감상 몇배는 어렵다고 느꼈다.
-
-
 
 ### 전체코드
 
@@ -38,12 +36,12 @@ function handleCheck(e){
 
   // 쉬프트를 누르고 체크 한 경우
   if(e.shiftKey && this.checked){
-    
+
     checkboxes.forEach(checkbox => {
       console.log(checkbox);
       // 지금 눌렀거나 직전에 누른거라면 isBetween이 true
       if(checkbox===this || checkbox===lastChecked){
-         
+
         inBetween = !inBetween;
         console.log('Starting to check item inbetween!');
       }
@@ -91,17 +89,10 @@ true일때만 박스가 체크되므로 2~7 일 때만, 체크가 된다.
 
 7은 클릭 당시에 이미 체크가 되므로, false가 된다.
 
-
 <br/>
 
 이런식의 어려운 로직을 짜는것도 중요하지만 강의를 듣기 전 코드를 짜면서 느낀것은 어떤 함수의 쓰임, 반환 값을 정확히 아는 것도 중요한 것 같다.
 
 예를 들어, `input`태그에 접근해 `tag.checked`를 하면 박스가 체크가 된다거나, 함수안의 함수가 있는 상태에서 `this`가 정확히 어떤 것을 가리키는지를 정확히 알 수 있게 되었다.
 
-
-
-
-
-
 ## [링크](https://super-profiterole-d339d8.netlify.app)
-

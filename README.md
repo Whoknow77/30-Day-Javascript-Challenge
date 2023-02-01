@@ -1,6 +1,5 @@
 # 🏃 30-Day-Javascript-Challenge
 
-
 <img src="https://i.postimg.cc/vmnbQRNB/image.png">
 
 <br/>
@@ -13,23 +12,23 @@
 
 <br/>
 
-
-|    **Topics**      |    **Date**   | 
-| ----------------- | -------- |
-|[Make a Javascript Drum kit](./1day/README.md) | 23/01/18 |
-|[CSS + JS Clock](./2day/README.md) | 23/01/19 |
-|[Update CSS Variables](./3day/README.md) | 23/01/20 |
-|[Array Cardio Practice - Day 1 ](./4day/README.md) | 23/01/20 |
-|[Flexbox + JavaScript Image Gallery ](./5day/README.md) | 23/01/21 |
-|[Ajax Type Ahead with fetch() ](./6day/README.md) | 23/01/21 |
-|[Array Cardio Practce - Day 2 ](./7day/README.md) | 23/01/22 |
-|[Let's build something fun with HTML5 Canvas](./8day/README.md) | 23/01/23 |
-|[14 Must Know Chrome Dev Tools Tricks](./9day/README.md) | 23/01/24 |
-|[JS Checkbox Challenge!](./10day/README.md) | 23/01/25 |
-|[Custom HTML5 Video Player](./11day/README.md) | 23/01/27 |
-|[JavaScript KONAMI CODE!](./12day/README.md) | 23/01/27 |
-|[Vanilla JavaScript Slide In on Scroll](./13day/README.md) | 23/01/28|
-|[JavaScript Fundamentals: Reference VS Copy](./14day/README.md) | 23/01/28|
-|[How LocalStorage and Event Delegation work](./15day/README.md) | 23/01/30|
-|[CSS Text Shadow on Mouse Move Effect](./16day/README.md) | 23/01/31|
-
+| **Topics**                                                                    | **Date** |
+| ----------------------------------------------------------------------------- | -------- |
+| [Make a Javascript Drum kit](./1day/README.md)                                | 23/01/18 |
+| [CSS + JS Clock](./2day/README.md)                                            | 23/01/19 |
+| [Update CSS Variables](./3day/README.md)                                      | 23/01/20 |
+| [Array Cardio Practice - Day 1 ](./4day/README.md)                            | 23/01/20 |
+| [Flexbox + JavaScript Image Gallery ](./5day/README.md)                       | 23/01/21 |
+| [Ajax Type Ahead with fetch() ](./6day/README.md)                             | 23/01/21 |
+| [Array Cardio Practce - Day 2 ](./7day/README.md)                             | 23/01/22 |
+| [Let's build something fun with HTML5 Canvas](./8day/README.md)               | 23/01/23 |
+| [14 Must Know Chrome Dev Tools Tricks](./9day/README.md)                      | 23/01/24 |
+| [JS Checkbox Challenge!](./10day/README.md)                                   | 23/01/25 |
+| [Custom HTML5 Video Player](./11day/README.md)                                | 23/01/27 |
+| [JavaScript KONAMI CODE!](./12day/README.md)                                  | 23/01/27 |
+| [Vanilla JavaScript Slide In on Scroll](./13day/README.md)                    | 23/01/28 |
+| [JavaScript Fundamentals: Reference VS Copy](./14day/README.md)               | 23/01/28 |
+| [How LocalStorage and Event Delegation work](./15day/README.md)               | 23/01/30 |
+| [CSS Text Shadow on Mouse Move Effect](./16day/README.md)                     | 23/01/31 |
+| [JavaScript Practice: Sorting Band Names without articles](./17day/README.md) | 23/02/01 |
+| [How JavaScript's Array Reduce Works](./18day/README.md)                      | 23/02/01 |
