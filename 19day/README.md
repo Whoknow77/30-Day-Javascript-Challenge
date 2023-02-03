@@ -137,3 +137,5 @@ video.addEventListener("canplay", paintToCanvas);
 와 같은 순서로 이루어진다는게 신기하였다.
 
 ## [링크](https://storied-gingersnap-67e192.netlify.app)
+
+`npm install` `npm start` 로 서버 연동 필요
