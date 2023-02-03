@@ -34,3 +34,5 @@
 | [How JavaScript's Array Reduce Works](./18day/README.md)                      | 23/02/01 |
 | [Unreal Webcam Fun with getUserMedia() and HTML5 Canvas](./19day/README.md)   | 23/02/02 |
 | [JavaScript Speech Recognition](./20day/README.md)                            | 23/02/03 |
+| [JavaScript Geolocation based Speedometer and Compass](./21day/README.md)     | 23/02/03 |
+| [JavaScript Exercise: Follow Along Links](./22day/README.md)                  | 23/02/03 |

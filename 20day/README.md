@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="https://im4.ezgif.com/tmp/ezgif-4-a080f6b766.gif">
+<img src="https://im2.ezgif.com/tmp/ezgif-2-00a253ce48.gif">
 
 ## 소개
 
@@ -85,7 +85,3 @@ if (transcript.includes("축소")) {
 ## [링크](https://storied-gingersnap-67e192.netlify.app)
 
 `npm install` `npm start` 로 서버 연동 필요
-
-```
-
-```
