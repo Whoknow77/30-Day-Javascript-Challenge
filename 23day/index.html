@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Speech Synthesis</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="voiceinator">
+      <h1>The Voiceinator 5000</h1>
+
+      <select name="voice" id="voices">
+        <option value="">Select A Voice</option>
+      </select>
+
+      <label for="rate">Rate:</label>
+      <input name="rate" type="range" min="0" max="3" value="1" step="0.1" />
+
+      <label for="pitch">Pitch:</label>
+
+      <input name="pitch" type="range" min="0" max="2" step="0.1" />
+      <textarea name="text">Hello! I love JavaScript 👍</textarea>
+      <button id="stop">Stop!</button>
+      <button id="speak">Speak</button>
+    </div>
+
+    <script>
+      const msg = new SpeechSynthesisUtterance();
+      let voices = [];
+      const voicesDropdown = document.querySelector('[name="voice"]'); // select
+      const options = document.querySelectorAll(
+        '[type="range"], [name="text"]'
+      );
+      const speakButton = document.querySelector("#speak");
+      const stopButton = document.querySelector("#stop");
+      msg.text = document.querySelector('[name="text"]').value;
+
+      // 언어 추가
+      function populateVoices() {
+        voices = this.getVoices(); // voice 종류배열
+        voicesDropdown.innerHTML = voices
+          .map(
+            (voice) =>
+              `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`
+          )
+          .join("");
+      }
+
+      // 언어 변경
+      function setVoice() {
+        msg.voice = voices.find((voice) => voice.name === this.value);
+        toggle();
+      }
+
+      // 음성 재생
+      function toggle(startOver = true) {
+        speechSynthesis.cancel();
+        if (startOver) {
+          speechSynthesis.speak(msg);
+        }
+      }
+
+      function setOption() {
+        msg[this.name] = this.value;
+        toggle();
+      }
+
+      speechSynthesis.addEventListener("voiceschanged", populateVoices); // 보이스들이 처음 설치될 때 발생
+      voicesDropdown.addEventListener("change", setVoice); // 옵션선택을 통해 voice가 변경된 경우
+      options.forEach((option) => option.addEventListener("change", setOption));
+      speakButton.addEventListener("click", toggle);
+      // stopButton.addEventListener("click", toggle(false)); // 이 함수는 함수를 반환하지 않는다. 페이지 로드시 최초 1회만 발동
+      // stopButton.addEventListener("click", toggle.bind(null, false));
+      stopButton.addEventListener("click", () => toggle(false));
+    </script>
+  </body>
+</html>
