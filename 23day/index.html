@@ -70,7 +70,7 @@
         toggle();
       }
 
-      speechSynthesis.addEventListener("voiceschanged", populateVoices); // 보이스들이 처음 설치될 때 발생
+      speechSynthesis.addEventListener("voiceschanged", populateVoices); // 보이스들이 처음 설치될 때 발생(페이지 로드시 최초 1회 실행)
       voicesDropdown.addEventListener("change", setVoice); // 옵션선택을 통해 voice가 변경된 경우
       options.forEach((option) => option.addEventListener("change", setOption));
       speakButton.addEventListener("click", toggle);

@@ -51,7 +51,7 @@ function setOption() {
   toggle();
 }
 
-speechSynthesis.addEventListener("voiceschanged", populateVoices); // 보이스들이 처음 설치될 때 발생
+speechSynthesis.addEventListener("voiceschanged", populateVoices); // 보이스들이 처음 설치될 때 발생(페이지 로드시 최초 1회 실행)
 voicesDropdown.addEventListener("change", setVoice); // 옵션선택을 통해 voice가 변경된 경우
 options.forEach((option) => option.addEventListener("change", setOption));
 speakButton.addEventListener("click", toggle);
@@ -68,6 +68,16 @@ stopButton.addEventListener("click", () => toggle(false));
 <img src="https://i.postimg.cc/KYgnYSCs/console-lo-voices.png">
 
 브라우저에 내장되어있는 `voices` 객체는 선택 가능한 목소리들을 전부 담은 배열이다.
+
+참고로 'utterance'는 '말'이라는 뜻인데, 이 '말 객체'를 목소리로 듣기 위해서는 '말하기 객체'가 필요하다.
+
+이는 'speechSynthesis'라는 객체로 존재하고, 해당 객체의 speak 메소드 안에
+utterance 객체를 넣어주면 브라우저가 해당 '말 객체'에 들어있는 각종 정보를 이용해서
+
+'말하기 객체'로 우리에게 목소리를 들려주게 되는 것이다.
+그러니까, text, voice, pitch, rate 등의 말과 관련된 모든 정보를 담고 있는 객체가 utterance 객체라고 생각하면 되고,
+
+이를 목소리로 직접 출력하기 위해서는 speechSynthesis 객체가 필요한 것이다.
 
 따라서 이러한 정보들과 사용자가 선택한 이벤트들과 연결하여 기능을 구현하였다.
 
@@ -101,7 +111,7 @@ stopButton.addEventListener("click", () => toggle(false));
 
 즉, `this` 값을 null로 하는 **새로운** `toggle` 함수를 만드는 것이다.
 
-**두 세번째**는 `toggle(false)`를 호출하는 또 다른 함수를 하나 만들어서 이벤트 리스너 함수로 달아주는 방법이다.
+**두 세번째**는 `toggle(false)`를 호출하는 또 다른 함수를 하나 만들어서 이벤트 리스너 함수로 달아주는 방법이다. 익명함수를 사용한 방법이다.
 
 즉, 함수를 함수로 감싸준것이다.
 
