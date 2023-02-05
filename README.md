@@ -38,3 +38,4 @@
 | [Follow Along Links](./22day/README.md)                                     | 23/02/03 |
 | [Text-To-Speech](./23day/README.md)                                         | 23/02/04 |
 | [Sticky Nav](./24day/README.md)                                             | 23/02/05 |
+| [Event Capture, Propagation and Bubbling](./25day/README.md)                | 23/02/05 |
