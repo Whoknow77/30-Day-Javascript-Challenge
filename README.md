@@ -37,3 +37,4 @@
 | [Geolocation based Speedometer and Compass](./21day/README.md)              | 23/02/03 |
 | [Follow Along Links](./22day/README.md)                                     | 23/02/03 |
 | [Text-To-Speech](./23day/README.md)                                         | 23/02/04 |
+| [Sticky Nav](./24day/README.md)                                             | 23/02/05 |
