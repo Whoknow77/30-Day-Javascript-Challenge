@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-a72bd556fb.gif">
+<img src="https://im4.ezgif.com/tmp/ezgif-4-0ac5cdeb1a.gif">
 
 ## 소개
 

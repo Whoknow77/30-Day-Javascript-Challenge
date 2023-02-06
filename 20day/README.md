@@ -2,8 +2,6 @@
 
 <br>
 
-<img src="https://im2.ezgif.com/tmp/ezgif-2-00a253ce48.gif">
-
 ## 소개
 
 - Web Speech API를 이용한 음성인식 구현
