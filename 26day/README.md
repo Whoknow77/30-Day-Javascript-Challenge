@@ -183,8 +183,6 @@ setTimeout(
 
 당연히 흰색 배경화면이 맨 왼쪽 위에서 뜨는 줄 알고 이해가 가지 않았는데 좌표 이동을 하기전에 흰색 바탕이 어디 생기는지 확인한 후 이해할 수 있었다.
 
-## [링크](https://tranquil-cupcake-40d259.netlify.app)
+## [링크](https://hilarious-sunburst-062373.netlify.app)
 
 ## 참고자료
-
-https://iborymagic.tistory.com/49
