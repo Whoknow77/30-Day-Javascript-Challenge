@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="https://im5.ezgif.com/tmp/ezgif-5-c9d204829c.gif">
+<img src="./Stripe.gif">
 
 ## 소개
 

@@ -1,5 +1,7 @@
 # JavaScript Speech Recognition
 
+<img src="./speech.gif">
+
 <br>
 
 ## 소개

@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="https://im4.ezgif.com/tmp/ezgif-4-4b8dd45e14.gif">
+<img src="./foolow.gif">
 
 ## 소개
 
