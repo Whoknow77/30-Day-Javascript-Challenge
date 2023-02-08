@@ -42,3 +42,5 @@
 | [Stripe Follow Along Dropdown Navigation](./26day/README.md)                | 23/02/06 |
 | [Click and Drag to Scroll](./27day/README.md)                               | 23/02/08 |
 | [Build a Experimental Video Speed Controller UI](./28day/README.md)         | 23/02/08 |
+| [Countdown Timer](./29day/README.md)                                        | 23/02/08 |
+| [Build a Experimental Video Speed Controller UI](./30day/README.md)         | 23/02/08 |
