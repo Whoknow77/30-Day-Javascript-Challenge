@@ -1,188 +1,142 @@
-# Stripe Follow Along Dropdown Navigation
+# Click and Drag to Scroll
 
 <br>
 
-<img src="./Stripe.gif">
+<img src="./drag.gif">
 
 ## 소개
 
-- 동적인 드롭다운 메뉴를 구현한 웹페이지
+- 마우스로 드래그해서 스크롤 할 수 있는 기능을 구현한 웹페이지
 
 ## 배운내용
 
 전체코드
 
 ```js
-const triggers = document.querySelectorAll(".cool > li"); // 모든 li태그들
-const background = document.querySelector(".dropdownBackground"); // 흰색 바탕
-const nav = document.querySelector(".top"); // 내비게이션 바 전체
+const slider = document.querySelector(".items");
+let isDown = false;
+let startX;
+let scrollLeft;
 
-function handleEnter() {
-  this.classList.add("trigger-enter");
-  setTimeout(
-    () =>
-      this.classList.contains("trigger-enter") &&
-      this.classList.add("trigger-enter-active"),
-    150
-  );
-  background.classList.add("open");
-
-  const dropdown = this.querySelector(".dropdown");
-  const dropdownCoords = dropdown.getBoundingClientRect(); // dropdown의 절대 좌표, 현재 브라우저 창에 따라 달라짐
-  const navCoords = nav.getBoundingClientRect(); // 바의 좌표
-
-  const coords = {
-    height: dropdownCoords.height,
-    width: dropdownCoords.width,
-    top: dropdownCoords.top - navCoords.top,
-    left: dropdownCoords.left - navCoords.left,
-  };
-
-  background.style.setProperty("width", `${coords.width}px`); // 흰색바탕의 크기 조정
-  background.style.setProperty("height", `${coords.height}px`);
-
-  background.style.setProperty(
-    "transform",
-    `translate(${coords.left}px, ${coords.top}px)`
-  ); // 흰색바탕의 위치 조정
-}
-
-function handleLeave() {
-  this.classList.remove("trigger-enter", "trigger-enter-active");
-  background.classList.remove("open");
-}
-
-triggers.forEach((trigger) =>
-  trigger.addEventListener("mouseenter", handleEnter)
-);
-triggers.forEach((trigger) =>
-  trigger.addEventListener("mouseleave", handleLeave)
-);
+slider.addEventListener("mousedown", (e) => {
+  isDown = true;
+  slider.classList.add("active");
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener("mouseleave", () => {
+  // 마우스가 item들을 벗어난 경우
+  isDown = false;
+  slider.classList.remove("active");
+});
+slider.addEventListener("mouseup", () => {
+  isDown = false;
+  slider.classList.remove("active");
+});
+slider.addEventListener("mousemove", (e) => {
+  if (!isDown) return; // 클릭 상태일때만 호출
+  e.preventDefault(); // 드래그 시 텍스트를 클릭하는 현상 방지
+  const x = e.pageX - slider.offsetLeft;
+  const walk = x - startX;
+  slider.scrollLeft = scrollLeft - walk;
+});
 ```
 
-### 1. display && opacity
+### 핵심은 드래그 할때마다 변하는 좌표를 `x` 에서 처음 클릭 시 좌표인 `startX` 를 뺀 `walk` 값을 `scrollLeft` 에 대입해서 스크롤을 하는것이다.
 
-```css
-.dropdown {
-  opacity: 0;
-  position: absolute;
-  overflow: hidden;
-  padding: 20px;
-  top: -20px;
-  border-radius: 2px;
-  transition: all 0.5s;
-  transform: translateY(100px);
-  will-change: opacity;
-  display: none;
-}
+### 1) 사용된 여러가지 좌표관련 변수들
 
-.trigger-enter .dropdown {
-  display: block;
-}
+- 클릭 이벤트 에서 사용할 수 있는 위치 속성
 
-.trigger-enter-active .dropdown {
-  opacity: 1;
-}
-```
+  - **clientX, clientY**
+
+    - 위 메서드는 클라이언트 영역 내의 가로,세로 좌표를 제공한다. 여기서 클라이언트 영역은 **현재 보이는 브라우저 화면이 기준**이 된다.
+    - 페이지의 **스크롤**을 신경쓰지 않는다.
+
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbOEOsI%2FbtrfnxKbKg2%2FYikJ4DkUOrH9H3ow7NeONk%2Fimg.png" height="300">
+
+  - **offsetX, offsetY**
+
+    - **요소 영역을 기준**으로 좌표를 표시한다.
+
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXD42d%2Fbtrfpfhd5vj%2FDQKXdvJREOLbVJ8MKBdrYk%2Fimg.png" height="300">
+
+  - **pageX, pageY**
+
+    - **스크롤을 포함**한 페이지를 기준으로 좌표를 표시한다.
+
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLwwpe%2FbtrfoS0Tpvq%2FPGbfD7wKwzRGIy6z49FhV0%2Fimg.png" height="300">
+
+  - **screenX, screenY**
+
+    - 모니터(스크린)을 기준으로 좌표를 표시한다.
+
+      <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcY2s24%2FbtrfnhAZiuo%2Fb0KBswd3VzZ6hYdstQXq1K%2Fimg.png" height="300">
+
+- **scrollLeft** : 스크롤을 오른쪽으로 얼마나 했는지에 대한 값을 px로 나타냄. 즉, 스크롤 막대가 오른쪽으로 갈수록 +, 왼쪽으로 갈수록 -, 맨 처음 스크롤을 하지 않고 그대로인 경우는 0
+
+여기서는 페이지 전체 기준 X 좌표(pageX)에서 items div의 왼쪽 가장자리의 X 좌표만큼을 빼주는 방법을 선택했다.
+
+그렇게 하면 items div의 왼쪽 가장자리를 기준으로 한 X 좌표를 가져올 수가 있기 때문.
+
+offsetX를 사용하지 않은 이유는, 이벤트가 발생하는 요소가
+
+items 전체 요소가 아니라 내부에 포함된 item 각각이 될 수 있기 때문이다.
+
+### 2) 드래그 후 클릭시 문제
 
 ```js
-setTimeout(() => this.classList.add("trigger-enter-active"), 150);
+const x = e.pageX - slider.offsetLeft;
+const walk = x - startX;
+slider.scrollLeft = walk;
 ```
 
-평상시에는 태그들이 안보이다가 마우스를 가져다대면 `trigger-enter`, `trigger-enter-active` 클래스를 추가시켜 보이게하는 효과를 css로 적용하였다.
+하지만 이 상태에서 드래그 후 다시 클릭을 하면, 스크롤이 맨 왼쪽에서 다시 시작한다.
 
-그런데 왜 `display:blcok` 과 `display:opacity:1`를 따로 구분하였고, 심지어 시간 간격을 두었을까?
+이유는 `startX`와 `x` 모두 초기화되서 `walk`또한 0 부터 다시 시작하니까 `scrollLeft` 또한 0부터 시작하기 때문이다.
 
-```css
-.trigger-enter .dropdown {
-  display: block;
-  opacity: 1;
-}
-```
-
-만약 이렇게 코드를 작성한다면, `opacity` **애니메이션이 동작하지 않기 때문**에 따로 구분하여 둔 것이다.
-
-### 2. 화살표함수의 사용 이유
+따라서
 
 ```js
-function handleEnter() {
-  this.classList.add("trigger-enter");
-  setTimeout(() => this.classList.add("trigger-enter-active"), 150);
-  background.classList.add("open");
-}
+slider.scrollLeft = scrollLeft - walk;
 ```
 
-마우스를 목록에 가져다 대면 drodown메뉴들과 흰 배경을 보이게 하는 코드이다.
+`scrollLeft`값에서 `walk` 값을 빼준값으로 매번 갱신하면, 다시 클릭했을때에도 `scrollLeft` 값에 스크롤값이 남아있어서 처음으로 되돌아가지 않는다.
 
-하지만, 여기서 `setTimeout`의 함수를 화살표함수가 아닌 그냥 함수로 작성할 경우, `this`가 `window` 객체를 가리키므로 기능이 완성되지 않는다.
+### 3) offsetLeft
 
-### 3. `getBoundingClientRect`
+`offsetLeft`가 의미하는 바를 고민하다가 콘솔에 찍어보니 어떤 곳을 클릭하거나 드래그하여도 계속 0 값을 출력하는 것을 알아냈다. 그래서 이 값을 빼도 웹페이지가 정상적으로 동작되는데 왜 넣은걸까..?
 
-**위치와 크기**를 담은 배열을 반환하는 유용한 함수이다.
+<img src="https://i.postimg.cc/W38GrBXg/image.png" height="300" width="300">
 
-```js
-const dropdownCoords = dropdown.getBoundingClientRect(); // dropdown의 절대 좌표, 현재 브라우저 창에 따라 달라짐
-const navCoords = nav.getBoundingClientRect(); // 바의 좌표
-```
+찾아보니 부모 영역을 기준으로 얼마나 떨어져 있는지를 나타낸다. 그렇다면 `scrollLeft`는 `body`의 왼쪽 상단 모서리에서 `slider`의 왼쪽 상단 모서리까지의 거리를 나타낸다.
 
-이 함수를 통해 `dropdown`, 내비게이션 바의 위치, 크기를 알 수 있다.
+`items` 의 부모는 `body`이고 흰색 테두리 선 안 뿐만아니라 화면 전체를 나타낸다면, 0px이 나올 수는 없는데 어떻게 나오는 것일까..?
 
-```js
-const coords = {
-  height: dropdownCoords.height,
-  width: dropdownCoords.width,
-  top: dropdownCoords.top
-  left: dropdownCoords.left
-};
+신기한건 `scrollTop`의 값은 100px정도로 나온다.
 
-background.style.setProperty("width", `${coords.width}px`); // 흰색바탕의 크기 조정
-background.style.setProperty("height", `${coords.height}px`);
+그러던중 `margin` 값이 `scrollLeft` 값과 같아진다는 사실을 발견했다.
 
-background.style.setProperty(
-  "transform",
-  `translate(${coords.left}px, ${coords.top}px)`
-); // 흰색바탕의 위치 조정
-```
-
-얻어온 크기, 좌표를 바탕으로 왼쪽위에 일정한 크기를 유지하던 흰색배경을 `dropdown` 크기에 맞게 너비, 폭, 위치를 모두 조정하였다.
-
-<img src="https://im5.ezgif.com/tmp/ezgif-5-204bf3df2c.gif">
-
-하지만 h2태그를 이용해 맨위에 요소를 추가하면 내비게이션 바도 아래로 내려가면서 흰색 배경의 위치가 벗어나는걸 볼 수 있다.
-
-내비게이션 바 안에서 흰색바탕이 존재한다. 왼쪽 맨 위에서 흰 바탕이 항상 생기는 것이 아니다.
-
-내비게이션 바만큼 내려온상태에서 좌표 이동을 하므로, `dropdown`의 좌표에서 `nav` 좌표를 빼줘야 한다.
-
-### 4. 비동기 => 동기처리
-
-```js
-this.classList.add("trigger-enter");
-setTimeout(() => this.classList.add("trigger-enter-active"), 150);
-```
-
-만약 마우스를 가져다대고 0.15초 후에 `active` 클래스를 만들기 전에 마우스를 떼버리면 뗀 상태에서도 비동기 함수가 호출되어서 메뉴가 사라지지 않는 문제가 발생한다.
-
-```js
-this.classList.add("trigger-enter");
-setTimeout(
-  () =>
-    this.classList.contains("trigger-enter") &&
-    this.classList.add("trigger-enter-active"),
-  150
-);
-```
-
-따라서 이렇게 **&&** 연산자를 이용하면 마우스를 대고 있을때에만 비동기 함수가 호출되도록 문제를 해결할 수 있다.
-
+그러나 아직 직관적으로 의미를 잘 모르겠다.. 나중에 비슷한 경우가 나온다면 그때 다시 공부하기로!
+`
 <br/>
 <br/>
 <br/>
 
-3번 내용을 이해하는데 오래걸렸다.
+---
 
-당연히 흰색 배경화면이 맨 왼쪽 위에서 뜨는 줄 알고 이해가 가지 않았는데 좌표 이동을 하기전에 흰색 바탕이 어디 생기는지 확인한 후 이해할 수 있었다.
+마지막에 드래그로 스크롤을 하고 다시 클릭을 했을때 처음으로 돌아오는 경우를 해결하는 부분이 이해가 안갔다.
 
-## [링크](https://hilarious-sunburst-062373.netlify.app)
+그래도 처음봤을때 엄청 어려운 기능으로 생각했는데 코드가 예상보다 짧고 그리 복잡하지 않아서 다행이라고 생각했다.
+
+## [링크](https://cool-blini-4db3da.netlify.app)
 
 ## 참고자료
+
+https://iborymagic.tistory.com/52
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft
+
+https://mong-blog.tistory.com/entry/clientX-offsetX-pageX-screenX-%EC%B0%A8%EC%9D%B4
+
+https://ko.javascript.info/size-and-scroll

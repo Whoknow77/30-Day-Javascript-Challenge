@@ -40,3 +40,4 @@
 | [Sticky Nav](./24day/README.md)                                             | 23/02/05 |
 | [Event Capture, Propagation and Bubbling](./25day/README.md)                | 23/02/05 |
 | [Stripe Follow Along Dropdown Navigation](./26day/README.md)                | 23/02/06 |
+| [Click and Drag to Scroll](./27day/README.md)                               | 23/02/08 |

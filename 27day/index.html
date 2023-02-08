@@ -43,7 +43,8 @@
       slider.addEventListener("mousedown", (e) => {
         isDown = true;
         slider.classList.add("active");
-        startX = e.pageX - slider.offsetLeft; // 클릭된곳의 x좌표 - 슬라이더의 x좌표 = 슬라이더안에서의 x좌표
+
+        startX = e.pageX; // 클릭된곳의 x좌표 - 슬라이더의 x좌표 = 슬라이더안에서의 x좌표
         scrollLeft = slider.scrollLeft; // 왼쪽에서 스크롤을 얼마나 했는지를 px로 나타냄
       });
       slider.addEventListener("mouseleave", () => {
@@ -58,9 +59,9 @@
       slider.addEventListener("mousemove", (e) => {
         if (!isDown) return; // 클릭 상태일때만 호출
         e.preventDefault(); // 왜 사용?
-        const x = e.pageX - slider.offsetLeft;
+        const x = e.pageX;
         const walk = x - startX;
-        console.log(slider.scrollLeft); // walk가 초기화 되므로 scrollLeft도 초기화됨
+        // walk가 초기화 되므로 scrollLeft도 초기화됨
         slider.scrollLeft = scrollLeft - walk; // 움직인 거리
       });
     </script>
