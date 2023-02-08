@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="./drag.gif">
+<img src="./speed.gif">
 
 ## 소개
 
@@ -91,4 +91,4 @@ speed.addEventListener("mouseleave", () => (mousedown = false));
 
 그래서 원래 알던 방식으로 하려했는데 도저히 되지 않고 콘솔에 찍히는것도 이해가 가지 않아 `click` 이벤트를 따로 이벤트 객체를 통해 if문으로 구별을 하였다.
 
-## [링크](https://cool-blini-4db3da.netlify.app)
+## [링크](https://steady-seahorse-fa2939.netlify.app)
