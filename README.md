@@ -4,7 +4,7 @@
 
 <br/>
 
-## 30일 동안 진행되는 프레임워크, 컴파일러, 라이브러리 등이 없는 **순수한 자바스크립트**로만 간단한 프로젝트 만들기
+## 30일 동안 진행되는 프레임워크, 컴파일러, 라이브러리 등이 없는 **순수한 자바스크립트**로만 간단한 웹페이지 만들기
 
 <br/>
 
@@ -43,4 +43,4 @@
 | [Click and Drag to Scroll](./27day/README.md)                               | 23/02/08 |
 | [Build a Experimental Video Speed Controller UI](./28day/README.md)         | 23/02/08 |
 | [Countdown Timer](./29day/README.md)                                        | 23/02/08 |
-| [Build a Experimental Video Speed Controller UI](./30day/README.md)         | 23/02/08 |
+| [Make a Whack A Mole Game](./30day/README.md)                               | 23/02/08 |
